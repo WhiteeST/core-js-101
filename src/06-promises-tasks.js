@@ -104,9 +104,10 @@ function chainPromises(array, action) {
         if (index === 0) result = data;
         else result = action(result, data);
         if (index === array.length - 1) resolve(result);
-      });
+      }).catch(() => { });
     });
   });
+  // throw new Error('Not implemented');
 }
 
 module.exports = {
